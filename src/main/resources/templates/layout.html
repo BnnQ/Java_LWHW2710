@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{sections/head::head}">
+    <meta charset="UTF-8">
+    <!--/*@thymesVar id="title" type="java.lang.String"*/-->
+    <title th:title="${title}"></title>
+</head>
+<body>
+<header th:insert="~{sections/header::header}"></header>
+<!--/*@thymesVar id="view" type="java.lang.String"*/-->
+
+<!-- ---------------VIEWS SECTION--------------- -->
+<!--       Register all existing views here      -->
+<div th:switch="${view}">
+    <div th:case="'home'" th:insert="~{views/home::home}"></div>
+    <div th:case="'about'" th:insert="~{views/about::about}"></div>
+    <div th:case="'contacts'" th:insert="~{views/contacts::contacts}"></div>
+    <div th:case="'blog'" th:insert="~{views/blog::blog}"></div>
+    <div th:case="'post'" th:insert="~{views/post::post}"></div>
+    <div th:case="'posts'" th:insert="~{views/posts::posts}"></div>
+    <div th:case="'createPost'" th:insert="~{views/createPost::createPost}"></div>
+    <div th:case="'editPost'" th:insert="~{views/editPost::editPost}"></div>
+    <div th:case="*">
+        <h1 th:if="${view != 'home'}" class="text-danger" th:text="|Error: view with name '${view}' was not found in 'resources/views/' folder, or this view is not registered. You can register the view in a special section in layout.html.|"></h1>
+    </div>
+</div>
+<!-- ---------------VIEWS SECTION--------------- -->
+
+<footer th:insert="~{sections/footer::footer}"></footer>
+</body>
+</html>
