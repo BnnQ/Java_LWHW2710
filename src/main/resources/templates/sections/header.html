@@ -1,0 +1,16 @@
+<div th:fragment="header" class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+        <span class="fs-4">Netters</span>
+    </a>
+
+    <ul class="nav nav-pills">
+        <!--/*@thymesVar id="view" type="java.lang.String"*/-->
+        <li class="nav-item"><a href="/" th:classappend="${view == 'home' ? 'active' : ''}" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="/blog" th:classappend="${view == 'blog' || view == 'post' ? 'active' : ''}" class="nav-link">Blog</a></li>
+        <li class="nav-item"><a href="/about" th:classappend="${view == 'about' ? 'active' : ''}" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="/contacts" th:classappend="${view == 'contacts' ? 'active' : ''}" class="nav-link">Contacts</a></li>
+        <li class="nav-item"><a href="/admin/post/list" th:classappend="${view == 'posts' || view == 'createPost' || view == 'editPost' ? 'active' : ''}" class="nav-link">Admin panel</a></li>
+    </ul>
+
+</div>
