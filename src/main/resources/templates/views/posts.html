@@ -1,0 +1,26 @@
+<div class="container py-5" th:fragment="posts">
+    <h1>Posts</h1>
+    <a href="/admin/post/new" class="btn btn-primary">Add new post</a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Main Image</th>
+            <th scope="col">Header</th>
+            <th scope="col">Content</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--/*@thymesVar id="posts" type="me.bnnq.homework.Models.Post[]"*/-->
+        <tr th:each="post : ${posts}">
+            <td><img th:src="${post.getImages()[0].getPath()}" class="img-fluid w-100 h-100 object-fit-contain" alt="Post image"></td>
+            <td th:text="${post.getHeader()}"></td>
+            <td th:text="${post.getContent()}"></td>
+            <td>
+                <a th:href="'/admin/post/edit/' + ${post.getId()}" class="btn btn-primary mb-1 w-100">Edit</a>
+                <a th:href="'/admin/post/delete/' + ${post.getId()}" class="btn btn-danger mb-1 w-100">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

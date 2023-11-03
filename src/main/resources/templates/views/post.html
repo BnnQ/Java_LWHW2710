@@ -1,0 +1,12 @@
+<div class="container py-5" th:fragment="post">
+    <h2 class="mb-4" th:text="${post.getHeader()}"></h2>
+    <!--/*@thymesVar id="post" type="me.bnnq.homework.Models.Post"*/-->
+    <img th:src="${post.getImages()[0].getPath()}" class="img-fluid w-100 h-100 object-fit-cover mb-4" alt="Post image">
+    <p class="text-muted" th:text="${#dates.format(post.getDate(), 'dd MMMM yyyy')}"></p>
+    <div class="mb-4" th:text="${post.getContent()}"></div>
+    <div class="row row-cols-1 row-cols-md-3 mb-3">
+        <div th:each="image, stat : ${post.getImages()}" th:if="${!stat.first}" class="col mb-4">
+            <img th:src="${image.getPath()}" class="img-fluid w-100 h-100 object-fit-cover" alt="Post image">
+        </div>
+    </div>
+</div>

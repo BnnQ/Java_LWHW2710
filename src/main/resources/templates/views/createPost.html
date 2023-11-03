@@ -1,0 +1,18 @@
+<div class="container py-5" th:fragment="createPost">
+    <h1>Create Post</h1>
+    <form action="/admin/post/new" method="post" enctype="multipart/form-data" class="mb-3">
+        <div class="mb-3">
+            <label class="form-label" for="headerInput">Header</label>
+            <input type="text" name="header" placeholder="Header" id="headerInput" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="contentInput">Content</label>
+            <textarea name="content" placeholder="Content" id="contentInput" class="form-control"></textarea>
+        </div>
+        <div id="imageInputs" class="mb-3">
+            <label class="form-label">Images</label>
+            <input type="file" name="images" multiple class="form-control">
+        </div>
+        <input type="submit" value="Create" class="btn btn-primary w-100">
+    </form>
+</div>

@@ -1,0 +1,20 @@
+<div class="container py-5" th:fragment="editPost">
+    <h1>Edit Post</h1>
+    <form action="/admin/post/edit" method="post" enctype="multipart/form-data" class="mb-3">
+        <!--/*@thymesVar id="post" type="me.bnnq.homework.Models.Post"*/-->
+        <input type="hidden" name="id" th:value="${post.getId()}">
+        <div class="mb-3">
+            <label class="form-label" for="headerInput">Header</label>
+            <input type="text" name="header" id="headerInput" th:value="${post.getHeader()}" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="contentInput">Content</label>
+            <textarea name="content" id="contentInput" th:text="${post.getContent()}" class="form-control"></textarea>
+        </div>
+        <div id="imageInputs" class="mb-3">
+            <label class="form-label">Images</label>
+            <input type="file" name="images" multiple class="form-control">
+        </div>
+        <input type="submit" value="Save" class="btn btn-primary w-100">
+    </form>
+</div>
